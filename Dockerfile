@@ -19,11 +19,11 @@ RUN apk add --no-cache shadow build-base gcc abuild binutils binutils-doc gcc-do
     && ./configure --disable-systemd --enable-eibnetip --enable-eibnetserver --enable-eibnetiptunnel \
     && mkdir -p src/include/sys && ln -s /usr/lib/bcc/include/sys/cdefs.h src/include/sys \
     && make && make install && cd .. && rm -rf knxd && mkdir -p /etc/knxd \
-    && addgroup -S knxd --gid $GID\
+    && addgroup -S knxd --gid $GID \
     && adduser -D -S -s /bin/sh --uid $UID -G knxd knxd \
     && usermod -a -G dialout knxd \
     && chmod a+x /entrypoint.sh \
-    && apk del --no-cache build-base abuild binutils binutils-doc gcc-doc git automake autoconf libtool argp-standalone cmake cmake-doc dev86
+    && apk del --no-cache shadow build-base abuild binutils binutils-doc gcc-doc git automake autoconf libtool argp-standalone cmake cmake-doc dev86
 
 COPY knxd.ini /root   
 COPY knxd.ini /etc/knxd    
