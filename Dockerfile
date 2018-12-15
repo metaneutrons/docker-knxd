@@ -20,7 +20,7 @@ RUN apk add --no-cache build-base gcc abuild binutils binutils-doc gcc-doc git l
     && mkdir -p src/include/sys && ln -s /usr/lib/bcc/include/sys/cdefs.h src/include/sys \
     && make && make install && cd .. && rm -rf knxd && mkdir -p /etc/knxd \
     && addgroup -S knxd --gid $GID\
-    && adduser -D -S -s /sbin/nologin --uid $UID -G knxd knxd \
+    && adduser -D -S -s /bin/sh --uid $UID -G knxd knxd \
     && chmod a+x /entrypoint.sh \
     && apk del --no-cache build-base abuild binutils binutils-doc gcc-doc git automake autoconf libtool argp-standalone cmake cmake-doc dev86
 
