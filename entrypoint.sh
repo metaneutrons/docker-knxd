@@ -15,7 +15,7 @@ fi
 chown knxd:knxd /etc/knxd/knxd.ini
 
 echo "Press <ctrl>-c to abort"
-su -s /bin/sh -c "knxd $ARGS" knxd
+su -s /bin/sh -c "/usr/local/bin/knxd $ARGS" knxd
 
 # Workaround because knxd always forks to background
 while [ true ] ; do

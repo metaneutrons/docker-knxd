@@ -25,7 +25,7 @@ RUN apk add --no-cache shadow build-base gcc abuild binutils binutils-doc gcc-do
     && chmod a+x /entrypoint.sh \
     && apk del --no-cache shadow build-base abuild binutils binutils-doc gcc-doc git automake autoconf libtool argp-standalone cmake cmake-doc dev86
 
-COPY knxd.ini /root   
+COPY knxd.ini /root
 COPY knxd.ini /etc/knxd    
 
 EXPOSE 3672 6720
